@@ -27,6 +27,11 @@ RUN wget https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.14
 # autopsy
 RUN bash autopsy-4.22.1/linux_macos_install_scripts/install_application.sh -i autopsy-4.22.1 -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
 
+# remove installation files
+# symlink autopsy to /usr/local/bin
+RUN rm autopsy-4.22.1_v2.zip && \
+      rm sleuthkit-java_4.14.0-1_amd64.deb && \
+      ln -s /usr/local/share/autopsy-4.22.1/bin/autopsy /usr/local/bin/autopsy
 
 USER headless
 
