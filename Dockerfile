@@ -9,9 +9,15 @@ USER root
 
 RUN apt-get update && \
       DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && \
-      apt-get install vim --yes
+      apt-get install vim unzip --yes
 
+WORKDIR /tmp
+
+RUN wget https://github.com/sleuthkit/autopsy/releases/download/autopsy-4.22.1/autopsy-4.22.1_v2.zip && \
+      unzip autopsy-4.22.1_v2.zip && \
+      bash autopsy-4.22.1/linux_macos_install_scripts/install_prereqs_ubuntu.sh
 
 USER headless
-WORKDIR /tmp
+
+
 
