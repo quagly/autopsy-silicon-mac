@@ -1,7 +1,7 @@
 FROM accetto/ubuntu-vnc-xfce-firefox-g3:22.04
 
+LABEL AUTHOR="quagly - https://github.com/quagly/autopsy-silicon-mac" 
 LABEL DESCRIPTION="Autopsy on AMD64 with VNC"
-LABEL MAINTAINER="Michael West - https://github.com/quagly/autopsy-silicon-mac" 
 LABEL AUTOPSY_VERSION=4.22.1
 
 # is this needed?
@@ -34,6 +34,6 @@ RUN rm autopsy-4.22.1_v2.zip && \
       ln -s /usr/local/share/autopsy-4.22.1/bin/autopsy /usr/local/bin/autopsy
 
 USER headless
-
+WORKDIR /home/headless
 
 

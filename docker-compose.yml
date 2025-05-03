@@ -4,16 +4,26 @@ services:
   container:
     image: quagly/autopsy:latest
     platform: linux/amd64
+    hostname: autopsy
+    container_name: autopsy
+    volumes:
+      - type: bind
+        source: /Users/quagly/data/autopsy 
+        target: /home/headless/autopsy/data
+        read_only: false 
+        bind:
+          create_host_path: false
+      - type: volume
+        target: /home/headless/autopsy/repository
+        read_only: false
     build:
       context: .
       shm_size: "2gb"
       tags:
-        - quagly/autopsy:0.9.0
+        - quagly/autopsy:1.1.0
         - quagly/autopsy:latest
       platforms:
       - "linux/amd64"
-    hostname: autopsy
-    container_name: autopsy
     ports:
       - "36901:6901"
       - "35901:5901"
