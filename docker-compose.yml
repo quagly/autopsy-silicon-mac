@@ -7,15 +7,16 @@ services:
     hostname: autopsy
     container_name: autopsy
     volumes:
+      - type: volume
+        source: autopsy-data
+        target: /home/headless
+        read_only: false
       - type: bind
         source: /Users/quagly/data/autopsy 
         target: /home/headless/autopsy/data
         read_only: false 
         bind:
           create_host_path: false
-      - type: volume
-        target: /home/headless/autopsy/repository
-        read_only: false
     build:
       context: .
       shm_size: "2gb"
@@ -33,5 +34,9 @@ services:
     environment:
       - VNC_RESOLUTION=1920x1080 
       - JAVA_TOOL_OPTIONS=-Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dawt.useSystemAAFontSettings=on
+      - DEFAULT_USERDIR_ROOT=/tmp
     shm_size: "2gb"
     privileged: true
+
+volumes:
+  autopsy-data:

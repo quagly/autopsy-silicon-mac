@@ -35,5 +35,3 @@ RUN rm autopsy-4.22.1_v2.zip && \
 
 USER headless
 WORKDIR /home/headless
-
-
