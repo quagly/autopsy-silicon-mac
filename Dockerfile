@@ -4,9 +4,6 @@ LABEL AUTHOR="quagly - https://github.com/quagly/autopsy-silicon-mac"
 LABEL DESCRIPTION="Autopsy on AMD64 with VNC"
 LABEL AUTOPSY_VERSION=4.22.1
 
-# is this needed?
-ENV TERM=linux
-
 USER root
 
 RUN apt-get update && \

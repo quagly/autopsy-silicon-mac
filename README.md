@@ -8,12 +8,14 @@ though this should run fine on any AMD64 system
 ## Getting Started
 Assuming apple silicon
 
-1. install rosetta 2
+1. Install Rosetta 2
+
 `softwareupdate --install-rosetta`
 
-2. install [docker desktop](https://docs.docker.com/get-started/introduction/get-docker-desktop/)
+2. Install [Docker Desktop](https://docs.docker.com/get-started/introduction/get-docker-desktop/)
 
-3. configure docker desktop
+3. Configure Docker Desktop
+
 go to Setting->General->Virtual Machine Options
 enable 
 * Apple Virtualization
@@ -22,6 +24,37 @@ enable
 
 ![Alt text](./images/docker-desktop-configuration.png)
 
+4. Test Rosetta / Apple Virtualization for AMD64
+
+`docker run -it --entrypoint /bin/sh --rm --platform linux/amd64 alpine`
+should provide a root shell
+
+5. Update docker-compose.yml 
+Set bind mount absolute path on host system for file sharing
+
+Services -> Container -> Volumes 
+
+```
+ - type: bind
+        source: /replace/with/your/path 
+```
+
+6. Start Container
+
+In this project run
+
+`docker-compose up -d`
+
+7. Connect to VNC
+Either a VNC client or Web browser will work.
+
+* VNC Client vnc://localhost:35901
+* Browser   http://localhost:36901
+
+user/password is headless/headless
+
+VNC capability provided by the excellent [accetto](https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3) project
+The VNC documentation from that project applies to this one.  
 
 ## Limitations
 
