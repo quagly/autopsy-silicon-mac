@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e 
 
-# test vnc
+# test vnc using just base container
 
 docker run \
   --rm \

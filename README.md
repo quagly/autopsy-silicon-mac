@@ -39,6 +39,12 @@ Services -> Container -> Volumes
         source: /replace/with/your/path 
 ```
 
+Modify resolution if desired
+
+Services -> Container -> Environment
+
+`- VNC_RESOLUTION=1920x1080`
+
 6. Start Container
 
 In this project run
@@ -56,10 +62,17 @@ user/password is headless/headless
 VNC capability provided by the excellent [accetto](https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3) project
 The VNC documentation from that project applies to this one.  
 
+8. Run autopsy
+
+open a terminal in the vnc client and run
+
+`autopsy`
+
+![Alt text](./images/autopsy.png)
+
 ## Limitations
 
-1. This is a single user system. Autopsy 4 supports multi-user.
-2.
+This is a single user system. Autopsy 4 supports multi-user.
 
 ## References
 
