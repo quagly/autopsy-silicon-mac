@@ -18,10 +18,15 @@ Assuming apple silicon
 3. Configure Docker Desktop
 
 go to Setting->General->Virtual Machine Options
+
+scroll down
+
 enable 
 * Apple Virtualization
 * Rosetta
 * VirtioFS
+
+should look like this on Docker Desktop 4.4
 
 ![Alt text](./images/docker-desktop-configuration.png)
 
