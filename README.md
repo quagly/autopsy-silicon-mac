@@ -3,6 +3,7 @@ provides a docker AMD64 image with [autopsy](https://www.autopsy.com) version 4
 
 ## Purpose
 run autopsy on silicon mac via rosetta for performance
+
 though this should run fine on any AMD64 system
 
 ## Getting Started
@@ -27,7 +28,7 @@ enable
 4. Test Rosetta / Apple Virtualization for AMD64
 
 `docker run -it --entrypoint /bin/sh --rm --platform linux/amd64 alpine`
-should provide a root shell
+should provide a root shell.  If no errors then success.  exit.
 
 5. Update docker-compose.yml 
 Set bind mount absolute path on host system for file sharing
@@ -57,7 +58,8 @@ Either a VNC client or Web browser will work.
 * VNC Client vnc://localhost:35901
 * Browser   http://localhost:36901
 
-user/password is headless/headless
+user: headless
+password: headless
 
 VNC capability provided by the excellent [accetto](https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-firefox-g3) project
 The VNC documentation from that project applies to this one.  
